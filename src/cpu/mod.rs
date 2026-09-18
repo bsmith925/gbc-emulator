@@ -398,7 +398,7 @@ impl Cpu {
 
         // STAT interrupt (IF bit 1), fired on rising edges
         let prev_mode = old_stat & 0x03;
-        let prev_coicidence = old_stat & 0x04 != 0;
+        let prev_coincidence = old_stat & 0x04 != 0;
 
         let mut fire = false;
 
@@ -415,7 +415,7 @@ impl Cpu {
             }
         }
 
-        if coincidence && !prev_coicidence && (old_stat & 0x40 != 0) {
+        if coincidence && !prev_coincidence && (old_stat & 0x40 != 0) {
             fire = true;
         }
 
